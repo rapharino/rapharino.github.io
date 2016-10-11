@@ -234,11 +234,6 @@
       
     </ul>
 
-    
-{% elseif theme.algolia_search %}
-  <a href="#" class="popup-trigger">
-    {{ __('menu.search') }}
-  </a>
 
 
   
@@ -269,6 +264,12 @@
 
 
     </div>
+    
+{% elseif theme.algolia_search %}
+  <a href="#" class="popup-trigger">
+    {{ __('menu.search') }}
+  </a>
+
   
 </nav>
 
