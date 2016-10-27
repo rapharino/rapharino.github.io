@@ -3,8 +3,8 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Rapharino's Blog
-subtitle:
+title: Rapharino
+subtitle: sdasdadasdadada
 description: Not just coder or the poet
 author: Rapharino
 language: zh-Hans
@@ -80,16 +80,19 @@ duoshuo_shortname: rapharino
 #duoshuo_share: true
 #duoshuo_hotartical: true
 
-algolia:
-  applicationID: 'IDXGXSB0CN'
-  apiKey: 'c3de694d084dd5223dd68cb92f455001'
-  adminApiKey: 'c441c351970e2fa69397c71ce03631af'
-  indexName: 'rapharino'
-  chunkSize: 5000
-  fields:
-    - title
-    - slug
-    - content:strip
+#algolia:
+#  applicationID: 'IDXGXSB0CN'
+#  apiKey: 'c3de694d084dd5223dd68cb92f455001'
+#  adminApiKey: 'c441c351970e2fa69397c71ce03631af'
+#  indexName: 'rapharino'
+#  chunkSize: 5000
+#  fields:
+#    - title
+#    - slug
+#    - content:strip
 
+search:
+  path: search.xml
+  field: all
 
 
