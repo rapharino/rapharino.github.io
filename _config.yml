@@ -4,7 +4,7 @@
 
 # Site
 title: Rapharino
-subtitle: sdasdadasdadada
+subtitle: Rapharino-Blog
 description: Not just coder or the poet
 author: Rapharino
 language: zh-Hans
@@ -69,8 +69,8 @@ theme: next
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repository: https://github.com/Rapharino/rapharino.github.io.git
-  branch: master  
+  repository: git@github.com:Rapharino/rapharino.github.io.git
+  branch: master
 
 # JiaThis 分享服务
 #jiathis: true  

@@ -2,7 +2,7 @@
 
 #!/usr/bin/env bash
 
-file="SpringCloud 第一弹 - Spring-cloud-config"
+file="IOC And Spring IOC"
 
 hexo new "${file}"
 
