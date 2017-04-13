@@ -9,7 +9,6 @@
       <content type="html"><![CDATA[<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><blockquote>
 <p>从基本概念出发,由浅入深的了解 IOC 和 Spring IOC.</p>
 </blockquote>
-<hr>
 <a id="more"></a>
 <h2 id="IOC"><a href="#IOC" class="headerlink" title="IOC"></a>IOC</h2><h3 id="Don-t-call-us-we-will-call-you"><a href="#Don-t-call-us-we-will-call-you" class="headerlink" title="Don`t call us,we will call you"></a>Don`t call us,we will call you</h3><p>好莱坞原则.中文大意为 别来调用我,我来调用你. 恰如其分的说明了 IOC(Inversion of Controll) 的本质. 举个通俗的例子,人们想喝酒, 通常需要自己去选择品种,去取并装杯.但如果是去酒吧,你只需要和柜台服务人员,描述你想喝什么,甚至是一个眼神,就会得到你想喝的酒.这就是控制反转.将 对象的控制权,转移至外部容器,实现与复杂对象的解耦.从主动的 “拉” (创建对象),转为了 “推”(依赖注入).</p>
 <p>依赖注入DI(Dependency Injection) 方式</p>
@@ -147,14 +146,14 @@
     </entry>
     
     <entry>
-      <title><![CDATA[标签]]></title>
-      <url>http://yoursite.com/tags/index.html</url>
+      <title><![CDATA[分类]]></title>
+      <url>http://yoursite.com/categories/index.html</url>
       <content type="html"></content>
     </entry>
     
     <entry>
-      <title><![CDATA[分类]]></title>
-      <url>http://yoursite.com/categories/index.html</url>
+      <title><![CDATA[标签]]></title>
+      <url>http://yoursite.com/tags/index.html</url>
       <content type="html"></content>
     </entry>
     
