@@ -1,0 +1,1015 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Java,分布式,微服务," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+
+
+
+
+
+
+<meta name="description" content="摘要
+在一个高可用的微服务架构中,配置中心 是一个不可或缺的服务,用以集中管理应用程序在 运行时 所需的外部配置.避免了分布式系统所造成的配置无序,繁杂等问题.可配合版本管理系统,实现配置参数的实时推拉的方式刷新,并无需重启.典型应用如Zookeeper,百度的DisConf,淘宝的Diamond,Spring Cloud Config …">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SpringCloud 第一弹 - Spring-cloud-config">
+<meta property="og:url" content="http://yoursite.com/2016/10/25/SpringCloud-1/index.html">
+<meta property="og:site_name" content="Rapharino">
+<meta property="og:description" content="摘要
+在一个高可用的微服务架构中,配置中心 是一个不可或缺的服务,用以集中管理应用程序在 运行时 所需的外部配置.避免了分布式系统所造成的配置无序,繁杂等问题.可配合版本管理系统,实现配置参数的实时推拉的方式刷新,并无需重启.典型应用如Zookeeper,百度的DisConf,淘宝的Diamond,Spring Cloud Config …">
+<meta property="og:image" content="http://oextu0tw4.bkt.clouddn.com/14773239279405.jpg">
+<meta property="og:image" content="http://oextu0tw4.bkt.clouddn.com/14773243182721.jpg">
+<meta property="og:updated_time" content="2016-10-26T12:57:08.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SpringCloud 第一弹 - Spring-cloud-config">
+<meta name="twitter:description" content="摘要
+在一个高可用的微服务架构中,配置中心 是一个不可或缺的服务,用以集中管理应用程序在 运行时 所需的外部配置.避免了分布式系统所造成的配置无序,繁杂等问题.可配合版本管理系统,实现配置参数的实时推拉的方式刷新,并无需重启.典型应用如Zookeeper,百度的DisConf,淘宝的Diamond,Spring Cloud Config …">
+<meta name="twitter:image" content="http://oextu0tw4.bkt.clouddn.com/14773239279405.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '6249235062731048000',
+      author: '主编'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/10/25/SpringCloud-1/"/>
+
+
+  <title> SpringCloud 第一弹 - Spring-cloud-config | Rapharino </title>
+</head>
+
+<body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Rapharino</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Rapharino-Blog</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-coder">
+          <a href="/categories/coder" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-desktop"></i> <br />
+            
+            技术
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-lifer">
+          <a href="/categories/lifer" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-edit"></i> <br />
+            
+            随笔
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            足迹
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                SpringCloud 第一弹 - Spring-cloud-config
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-25T19:40:35+08:00" content="2016-10-25">
+              2016-10-25
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/coder/" itemprop="url" rel="index">
+                    <span itemprop="name">coder</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/25/SpringCloud-1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/25/SpringCloud-1/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/10/25/SpringCloud-1/" class="leancloud_visitors" data-flag-title="SpringCloud 第一弹 - Spring-cloud-config">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><blockquote>
+<p>在一个高可用的<code>微服务架构</code>中,配置中心 是一个不可或缺的服务,用以集中管理应用程序在 运行时 所需的外部配置.避免了分布式系统所造成的配置无序,繁杂等问题.可配合版本管理系统,实现配置参数的实时推拉的方式刷新,并无需重启.典型应用如<code>Zookeeper</code>,百度的<code>DisConf</code>,淘宝的<code>Diamond</code>,<code>Spring Cloud Config</code> …</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="选型"><a href="#选型" class="headerlink" title="选型"></a>选型</h2><p>之所以选择 <code>Spring Cloud Config</code>:</p>
+<ul>
+<li>社区活跃,更新频繁.</li>
+<li>无痕衔接 Spring 4 属性管理 API</li>
+<li>极高的定制化能力.</li>
+<li>基于<code>SpringBoot</code>,天生的适合云服务的开发和部署.</li>
+</ul>
+<h2 id="Spring-属性管理："><a href="#Spring-属性管理：" class="headerlink" title="Spring 属性管理："></a>Spring 属性管理：</h2><p>其实是在 Spring3.1 就提供了新的属性管理API,功能强大,设计极其具有美感.</p>
+<h3 id="常见-API"><a href="#常见-API" class="headerlink" title="常见 API"></a>常见 API</h3><ul>
+<li><code>PropertySource</code>：属性源，key-value属性对抽象，比如用于配置数据</li>
+<li><code>PropertyResolver</code>：属性解析器，用于解析相应key的value</li>
+<li><code>Environment</code>：环境，本身是一个PropertyResolver，但是提供了<code>Profile</code>特性，即可以根据环境得到相应数据（即激活不同的Profile，可以得到不同的属性数据，比如用于多环境场景的配置（正式机、测试机、开发机DataSource配置））</li>
+<li><code>Profile</code>：剖面，只有激活的剖面的组件/配置才会注册到Spring容器，类似于maven中profile</li>
+</ul>
+<h2 id="开始构建"><a href="#开始构建" class="headerlink" title="开始构建"></a>开始构建</h2><h3 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h3><p>推荐使用 Maven 作为项目构建工具.(<a href="http://www.bysocket.com/?p=1124" target="_blank" rel="external">如若不了解 SpringBoot</a>)<br>目录如下:<br><img src="http://oextu0tw4.bkt.clouddn.com/14773239279405.jpg" alt=""></p>
+<h3 id="Pom-文件"><a href="#Pom-文件" class="headerlink" title="Pom 文件"></a>Pom 文件</h3><figure class="highlight xml"><figcaption><span>pom.xml</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-config-server<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="创建Main-Class"><a href="#创建Main-Class" class="headerlink" title="创建Main-Class"></a>创建Main-Class</h3><figure class="highlight java"><figcaption><span>Application.java</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * <span class="doctag">@see</span> org.springframework.boot.autoconfigure.SpringBootApplication  Annotate SpringBoot Application</div><div class="line"> * <span class="doctag">@see</span> org.springframework.cloud.config.server.EnableConfigServer    Annotate ConfigServer Application</div><div class="line"> *</div><div class="line"> * Created by Rapharino on 2016/10/02.</div><div class="line"> */</div><div class="line"><span class="meta">@SpringBootApplication</span></div><div class="line"><span class="meta">@EnableConfigServer</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Application</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Logger LOGGER = LoggerFactory.getLogger(Application.class);</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line"></div><div class="line">        ConfigurableApplicationContext configurableApplicationContext = SpringApplication</div><div class="line">                .run(Application.class, args);</div><div class="line">        Environment environment = configurableApplicationContext.getEnvironment();</div><div class="line"></div><div class="line">        LOGGER.info(<span class="string">"Server with active profiles:&#123;&#125; is running at http://&#123;&#125;:&#123;&#125;"</span>,environment.getActiveProfiles(),environment.getProperty(<span class="string">"server.address"</span>), environment.getProperty(<span class="string">"server.port"</span>));</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="仓储配置"><a href="#仓储配置" class="headerlink" title="仓储配置"></a>仓储配置</h3><p>推荐使用 git 作为配置文件的版本管理.<br><img src="http://oextu0tw4.bkt.clouddn.com/14773243182721.jpg" alt=""></p>
+<p>在 SpringCloud 家族中推荐,YAML 作为外部配置文件的声明语法.<br><a href="http://www.ruanyifeng.com/blog/2016/07/yaml.html?f=tt" target="_blank" rel="external">推荐阮一峰老师的关于 YAML 的简介</a></p>
+<h4 id="配置读取顺序"><a href="#配置读取顺序" class="headerlink" title="配置读取顺序"></a>配置读取顺序</h4><p><code>SpringBoot</code> 配置使用一个特别的顺序进行合理的配置和覆盖.允许开发者通过配置服务,静态文件,环境变量,命令行参数,注解类等,用以外化配置.覆盖顺序如下:</p>
+<ol>
+<li>命令行参数</li>
+<li>来自于 java:comp/env 的 JNDI 属性</li>
+<li>操作系统环境变量</li>
+<li>在打包的 jar 外的配置文件(包括 propertis,yaml,profile变量.)</li>
+<li>在打包的 jar 内的配置文件(包括 propertis,yaml,profile变量.)</li>
+<li>@Configuration 类的@PropertySource 注解</li>
+<li>应用框架默认配置</li>
+</ol>
+<p>并且可通过新的 Api 进行配置的优雅注入.如:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Bean</span></div><div class="line"><span class="meta">@Primary</span></div><div class="line"><span class="meta">@ConfigurationProperties</span>(prefix = <span class="string">"spring.datasource"</span>)</div><div class="line"><span class="function"><span class="keyword">public</span> DataSource <span class="title">dataSource</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">new</span> DruidDataSource();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h2><p>代码由 <a href="https://github.com/Gexin-Team/cloud-in-action" target="_blank" rel="external">https://github.com/Gexin-Team/cloud-in-action</a> 托管. 出自 Gexin 团队.</p>
+<h3 id="相关连接"><a href="#相关连接" class="headerlink" title="相关连接"></a>相关连接</h3><p><a href="http://docs.spring.io/spring-boot/docs/1.4.0.RELEASE/reference/html/" target="_blank" rel="external">http://docs.spring.io/spring-boot/docs/1.4.0.RELEASE/reference/html/</a><br><a href="http://cloud.spring.io/spring-cloud-static/spring-cloud-config/1.2.0.M1/" target="_blank" rel="external">http://cloud.spring.io/spring-cloud-static/spring-cloud-config/1.2.0.M1/</a><br><a href="https://segmentfault.com/a/1190000005029218" target="_blank" rel="external">https://segmentfault.com/a/1190000005029218</a></p>
+
+          <hr>
+          <h6 id="原创出处-www-rapharino-com-作者-Rapharino-IN-请继续关注Rapharino的博客">
+            <a href="#原创出处-www-rapharino-com-作者-Rapharino-IN-请继续关注Rapharino的博客" class="headerlink"
+                title="原创出处:www.rapharino.com 作者:Rapharino IN,请继续关注Rapharino的博客."></a>
+            原创出处:www.rapharino.com 作者:Rapharino IN,请继续关注Rapharino的博客.
+          </h6>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag">#Java</a>
+          
+            <a href="/tags/分布式/" rel="tag">#分布式</a>
+          
+            <a href="/tags/微服务/" rel="tag">#微服务</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/10/19/努力不成为曾经讨厌的人/" rel="next" title="努力不成为曾经讨厌的人">
+                <i class="fa fa-chevron-left"></i> 努力不成为曾经讨厌的人
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/04/13/IOC-And-Spring-IOC/" rel="prev" title="IOC And Spring IOC">
+                IOC And Spring IOC <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/10/25/SpringCloud-1/"
+           data-title="SpringCloud 第一弹 - Spring-cloud-config" data-url="http://yoursite.com/2016/10/25/SpringCloud-1/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://oextu0tw4.bkt.clouddn.com/blog/image/tx.png"
+               alt="Rapharino" />
+          <p class="site-author-name" itemprop="name">Rapharino</p>
+          <p class="site-description motion-element" itemprop="description">Not just coder or the poet</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Rapharino" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/users/71337b7e8fb4/timeline" target="_blank" title="简书">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  简书
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.bysocket.com/" title="Bysocket" target="_blank">Bysocket</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://jafeney.com/" title="Jafeney" target="_blank">Jafeney</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#摘要"><span class="nav-number">1.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#选型"><span class="nav-number">2.</span> <span class="nav-text">选型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring-属性管理："><span class="nav-number">3.</span> <span class="nav-text">Spring 属性管理：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#常见-API"><span class="nav-number">3.1.</span> <span class="nav-text">常见 API</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开始构建"><span class="nav-number">4.</span> <span class="nav-text">开始构建</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#目录结构"><span class="nav-number">4.1.</span> <span class="nav-text">目录结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Pom-文件"><span class="nav-number">4.2.</span> <span class="nav-text">Pom 文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建Main-Class"><span class="nav-number">4.3.</span> <span class="nav-text">创建Main-Class</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#仓储配置"><span class="nav-number">4.4.</span> <span class="nav-text">仓储配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#配置读取顺序"><span class="nav-number">4.4.1.</span> <span class="nav-text">配置读取顺序</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结尾"><span class="nav-number">5.</span> <span class="nav-text">结尾</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#相关连接"><span class="nav-number">5.1.</span> <span class="nav-text">相关连接</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Rapharino</span>
+</div>
+
+<link href="/css/search.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/js/search.js"></script>
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><span class="busuanzi-value" id="busuanzi_value_site_uv"></span><i class="fa fa-user"></i></span>
+  
+
+  
+    <span class="site-pv"><span class="busuanzi-value" id="busuanzi_value_site_pv"></span><i class="fa fa-eye"></i></span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"rapharino"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = false;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title >= 0 || index_content >= 0 ){
+                                isMatch = true;
+								if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            } 
+							
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("mC2eUO54SLUPBXzAi9288vJo-gzGzoHsz", "rUlg8shk8mM5z7pCwGAapfAI");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script type="text/javascript" async src="//push.zhanzhang.baidu.com/push.js">
+</script>
+
+
+</body>
+</html>

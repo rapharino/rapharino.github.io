@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+    
+    <entry>
+      <title><![CDATA[IOC And Spring IOC]]></title>
+      <url>http://yoursite.com/2017/04/13/IOC-And-Spring-IOC/</url>
+      <content type="html"><![CDATA[<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><blockquote>
+<p>从基本概念出发,由浅入深的了解 IOC 和 Spring IOC.</p>
+</blockquote>
+<hr>
+<a id="more"></a>
+<h2 id="IOC"><a href="#IOC" class="headerlink" title="IOC"></a>IOC</h2><h3 id="Don-t-call-us-we-will-call-you"><a href="#Don-t-call-us-we-will-call-you" class="headerlink" title="Don`t call us,we will call you"></a>Don`t call us,we will call you</h3><p>好莱坞原则.中文大意为 别来调用我,我来调用你. 恰如其分的说明了 IOC(Inversion of Controll) 的本质. 举个通俗的例子,人们想喝酒, 通常需要自己去选择品种,去取并装杯.但如果是去酒吧,你只需要和柜台服务人员,描述你想喝什么,甚至是一个眼神,就会得到你想喝的酒.这就是控制反转.将 对象的控制权,转移至外部容器,实现与复杂对象的解耦.从主动的 “拉” (创建对象),转为了 “推”(依赖注入).</p>
+<p>依赖注入DI(Dependency Injection) 方式</p>
+<ul>
+<li>构造注入:实例构造方法中,选择并注入所需依赖对象.</li>
+<li>setter 注入:依赖对象对应的setter方法中,选择并注入所需依赖对象.</li>
+<li>接口注入:易用性和扩展性较差.逐渐淘汰.</li>
+</ul>
+<h3 id="IOC-Service-Provider"><a href="#IOC-Service-Provider" class="headerlink" title="IOC Service Provider"></a>IOC Service Provider</h3><p>作为一个抽象角色,担当IOC场景下的核心职责,主要包括:</p>
+<ul>
+<li>对象的构建管理</li>
+<li>对象的依赖绑定</li>
+</ul>
+<p>主流产品包括有 Spring,Google Guice 等, 对于对象的构建管理和依赖绑定主要为三种方式</p>
+<ul>
+<li>直接编码</li>
+<li>配置文件</li>
+<li>元数据</li>
+</ul>
+<h2 id="Spring-IOC"><a href="#Spring-IOC" class="headerlink" title="Spring IOC"></a>Spring IOC</h2><h3 id="Spring-IOC-Service-Provider"><a href="#Spring-IOC-Service-Provider" class="headerlink" title="Spring - IOC Service Provider"></a>Spring - IOC Service Provider</h3><p>Spring 的 IOC 是 IOC Service Provider 的一个实现,并且是一个包含了 AOP,对象查找等高级特性的 一个IOC超集.因此被称为 Spring 的 IOC Container (容器),其关系如下:</p>
+<p><img src="https://ww4.sinaimg.cn/large/006tKfTcgy1fei4g2c7l7j30sq0lqdiz.jpg" alt=""></p>
+<h3 id="BeanFactory"><a href="#BeanFactory" class="headerlink" title="BeanFactory"></a>BeanFactory</h3><p>Spring IOC容器的核心接口, 主要的UML如下</p>
+<p><img src="https://ww2.sinaimg.cn/large/006tKfTcgy1fekbx9sbw8j30kx0dkab7.jpg" alt=""></p>
+<ol>
+<li><p>BeanFactory: </p>
+<p>提供了完整的 IOC 服务支持.典型的工厂类,负责对象(POJO)的创建(注册),依赖绑定,查找 等功能.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">BeanFactory</span> </span>&#123;</div><div class="line">    <span class="comment">// 根据名称获取 Bean</span></div><div class="line">    <span class="function">Object <span class="title">getBean</span><span class="params">(String name)</span> <span class="keyword">throws</span> BeansException</span>;</div><div class="line">  	<span class="comment">// 根据类型获取 Bean</span></div><div class="line">    &lt;T&gt; <span class="function">T <span class="title">getBean</span><span class="params">(Class&lt;T&gt; requiredType)</span> <span class="keyword">throws</span> BeansException</span>;</div><div class="line">	<span class="comment">// 是否为单实例  </span></div><div class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">isSingleton</span><span class="params">(String name)</span> <span class="keyword">throws</span> NoSuchBeanDefinitionException</span>;</div><div class="line">  	<span class="comment">// 是否为多实例</span></div><div class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">isPrototype</span><span class="params">(String name)</span> <span class="keyword">throws</span> NoSuchBeanDefinitionException</span>;</div><div class="line">    <span class="comment">// 根据实例的名字获取类型 </span></div><div class="line">    Class&lt;?&gt; getType(String name) <span class="keyword">throws</span> NoSuchBeanDefinitionException;</div><div class="line">  	<span class="comment">// 根据名称获取别名组</span></div><div class="line">    String[] getAliases(String name);</div><div class="line">    ......</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+<li><p>AutowireCapableBeanFactory：</p>
+<p>在BeanFactory基础上实现对已存在实例的管理,提供自动装配(AutoWire,是 Srping 依赖注入的 一种方式.以约定规则进行依赖关系的绑定)等功能性方法.实际开发中较少，像ApplicationContext就未实现该接口。主要用于动态加入 Bean并自动装配 至容器中.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 部分核心代码</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">AutowireCapableBeanFactory</span> <span class="keyword">extends</span> <span class="title">BeanFactory</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">int</span> AUTOWIRE_NO = <span class="number">0</span>;<span class="comment">//不使用自动装配 </span></div><div class="line">    <span class="keyword">int</span> AUTOWIRE_BY_NAME = <span class="number">1</span>;<span class="comment">//通过名称自动装配 </span></div><div class="line">    <span class="keyword">int</span> AUTOWIRE_BY_TYPE = <span class="number">2</span>;<span class="comment">//通过类型自动装配  </span></div><div class="line">    <span class="keyword">int</span> AUTOWIRE_CONSTRUCTOR = <span class="number">3</span>;<span class="comment">//构造器装配 </span></div><div class="line">  </div><div class="line">    <span class="comment">// 根据给定的类型和指定的装配策略，创建一个新的Bean实例</span></div><div class="line">    <span class="function">Object <span class="title">createBean</span><span class="params">(Class&lt;?&gt; beanClass, <span class="keyword">int</span> autowireMode, <span class="keyword">boolean</span> dependencyCheck)</span> <span class="keyword">throws</span> BeansException</span>;</div><div class="line">    <span class="comment">//为已存在Bean 自动装配</span></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">autowireBeanProperties</span><span class="params">(Object existingBean, <span class="keyword">int</span> autowireMode, <span class="keyword">boolean</span> dependencyCheck)</span> <span class="keyword">throws</span> BeansException</span>; </div><div class="line">    <span class="comment">//为指定类和名称 自动装配</span></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">applyBeanPropertyValues</span><span class="params">(Object existingBean, String beanName)</span> <span class="keyword">throws</span> BeansException</span>;</div><div class="line">    <span class="comment">//初始化一个Bean</span></div><div class="line">    <span class="function">Object <span class="title">initializeBean</span><span class="params">(Object existingBean, String beanName)</span> <span class="keyword">throws</span> BeansException</span>;</div><div class="line">    <span class="comment">//初始化之前执行BeanPostProcessors</span></div><div class="line">    <span class="function">Object <span class="title">applyBeanPostProcessorsBeforeInitialization</span><span class="params">(Object existingBean, String beanName)</span> <span class="keyword">throws</span> BeansException</span>;</div><div class="line">    <span class="comment">//初始化之后执行BeanPostProcessors</span></div><div class="line">    <span class="function">Object <span class="title">applyBeanPostProcessorsAfterInitialization</span><span class="params">(Object existingBean, String beanName)</span> <span class="keyword">throws</span> BeansException</span>;</div><div class="line">    <span class="comment">//销毁一个Bean</span></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">destroyBean</span><span class="params">(Object existingBean)</span></span>;</div><div class="line">    <span class="comment">//分解指定的依赖</span></div><div class="line">    <span class="function">Object <span class="title">resolveDependency</span><span class="params">(DependencyDescriptor descriptor, String beanName,</span></span></div><div class="line">            Set&lt;String&gt; autowiredBeanNames, TypeConverter typeConverter) <span class="keyword">throws</span> BeansException;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+<li><p>HierarchicalBeanFactory：</p>
+<p>提供父容器的访问支持.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">HierarchicalBeanFactory</span> <span class="keyword">extends</span> <span class="title">BeanFactory</span> </span>&#123;</div><div class="line">  	<span class="comment">// 获取父的BeanFactory</span></div><div class="line">	<span class="function">BeanFactory <span class="title">getParentBeanFactory</span><span class="params">()</span></span>;</div><div class="line">	<span class="comment">// 在本地容器查找是否存在指定名称的 Bean.</span></div><div class="line">	<span class="function"><span class="keyword">boolean</span> <span class="title">containsLocalBean</span><span class="params">(String name)</span></span>;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+<li><p>ListableBeanFactory：</p>
+<p>主要是 提供了批量获取Bean的方法.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">ListableBeanFactory</span> <span class="keyword">extends</span> <span class="title">BeanFactory</span> </span>&#123;</div><div class="line">	<span class="comment">// 根据类型查找 Bean 的名称数组</span></div><div class="line">    String[] getBeanNamesForType(Class&lt;?&gt; type); </div><div class="line">	<span class="comment">// 根据类型查找 Bean 的Map</span></div><div class="line">    &lt;T&gt; <span class="function">Map&lt;String, T&gt; <span class="title">getBeansOfType</span><span class="params">(Class&lt;T&gt; type)</span> <span class="keyword">throws</span> BeansException</span>; </div><div class="line">    <span class="comment">//根据注解查找相关Bean 名称数组</span></div><div class="line">    String[] getBeanNamesForAnnotation(Class&lt;? extends Annotation&gt; annotationType); </div><div class="line">    <span class="comment">//根据注解查找相关Bean的 Map</span></div><div class="line">    <span class="function">Map&lt;String, Object&gt; <span class="title">getBeansWithAnnotation</span><span class="params">(Class&lt;? extends Annotation&gt; annotationType)</span> <span class="keyword">throws</span> BeansException</span>; </div><div class="line">    <span class="comment">//查找一个Bean上的注解</span></div><div class="line">    &lt;A extends Annotation&gt; <span class="function">A <span class="title">findAnnotationOnBean</span><span class="params">(String beanName, Class&lt;A&gt; annotationType)</span> <span class="keyword">throws</span> NoSuchBeanDefinitionException</span>; </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="BeanDefinitionRegistry"><a href="#BeanDefinitionRegistry" class="headerlink" title="BeanDefinitionRegistry"></a>BeanDefinitionRegistry</h3><p>该类的作用主要是向注册表中注册 BeanDefinition 实例，完成 注册的过程。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">BeanDefinitionRegistry</span> <span class="keyword">extends</span> <span class="title">AliasRegistry</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="comment">// 往注册表中注册一个新的 BeanDefinition 实例 </span></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">registerBeanDefinition</span><span class="params">(String beanName, BeanDefinition beanDefinition)</span><span class="keyword">throws</span> BeanDefinitionStoreException</span>;</div><div class="line">    <span class="comment">// 移除注册表中已注册的 BeanDefinition 实例</span></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">removeBeanDefinition</span><span class="params">(String beanName)</span> <span class="keyword">throws</span> NoSuchBeanDefinitionException</span>;</div><div class="line">    <span class="comment">// 从注册中取得指定的 BeanDefinition 实例</span></div><div class="line">    <span class="function">BeanDefinition <span class="title">getBeanDefinition</span><span class="params">(String beanName)</span> <span class="keyword">throws</span> NoSuchBeanDefinitionException</span>;</div><div class="line">    <span class="comment">// 判断 BeanDefinition 实例是否在注册表中（是否注册）</span></div><div class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">containsBeanDefinition</span><span class="params">(String beanName)</span></span>;</div><div class="line">    <span class="comment">// 取得注册表中所有 BeanDefinition 实例的 beanName（标识）</span></div><div class="line">    String[] getBeanDefinitionNames();</div><div class="line">    <span class="comment">// 返回注册表中 BeanDefinition 实例的数量</span></div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">getBeanDefinitionCount</span><span class="params">()</span></span>;</div><div class="line">    <span class="comment">// beanName（标识）是否被占用</span></div><div class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">isBeanNameInUse</span><span class="params">(String beanName)</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="BeanDefinition"><a href="#BeanDefinition" class="headerlink" title="BeanDefinition"></a>BeanDefinition</h3><p>用于保存容器中受管对象的所有必要信息.包括类型,构造参数,属性参数,以及 Bean生命周期相关参数 等等.往往由BeanDefinitionReader 来完成BeanDefinition的解析和创建.</p>
+<h3 id="DefaultListableBeanFactory"><a href="#DefaultListableBeanFactory" class="headerlink" title="DefaultListableBeanFactory"></a>DefaultListableBeanFactory</h3><p>作为Spring IOC 的鼻祖,一个真正可用的一个 BeanFactory的是一个实现.(现在应用较少). 继承了BeanFactory,BeanDefinitionRegistry. 举个例子我们可以大致了解雏形了.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span>  </span>&#123;</div><div class="line">    <span class="comment">// 创建 BeanFactory</span></div><div class="line">    DefaultListableBeanFactory beanRegistry = <span class="keyword">new</span> DefaultListableBeanFactory();   </div><div class="line">    <span class="comment">// 创建 BeanDefinition</span></div><div class="line">    AbstractBeanDefinition userDefinition = <span class="keyword">new</span> RootBeanDefinition(User.class,<span class="keyword">true</span>);   </div><div class="line">    AbstractBeanDefinition carDefinition = <span class="keyword">new</span> RootBeanDefinition(Car.class,<span class="keyword">true</span>);   </div><div class="line">    <span class="comment">// 注册到 BeanFactory</span></div><div class="line">    beanRegistry.registerBeanDefinition(<span class="string">"user"</span>, userDefinition);   </div><div class="line">    beanRegistry.registerBeanDefinition(<span class="string">"car"</span>, carDefinition);</div><div class="line">    <span class="comment">// 1.通过构造注入 方式</span></div><div class="line">    ConstructorArgumentValues argValues = <span class="keyword">new</span> ConstructorArgumentValues();   </div><div class="line">    argValues.addIndexedArgumentValue(<span class="number">0</span>, carDefinition); </div><div class="line">    userDefinition.setConstructorArgumentValues(argValues);</div><div class="line">    <span class="comment">// 2. 或者通过setter方法注入方式   </span></div><div class="line">    MutablePropertyValues propertyValues = <span class="keyword">new</span> MutablePropertyValues();   </div><div class="line">    propertyValues.addPropertyValue(<span class="keyword">new</span> ropertyValue(<span class="string">"car"</span>,carDefinition)); </div><div class="line">    userDefinition.setPropertyValues(propertyValues);</div><div class="line">  </div><div class="line">  	<span class="comment">// 完成构建,应用</span></div><div class="line">    beanRegistry.getBean(<span class="string">"user"</span>).getCar();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>可以看出来,BeanDefinition 是整个 容器的核心.描述了对象创建和依赖绑定的 必要信息.</p>
+<p>原生硬编码的方式,需要手动定义BeanDefinition,并且需要设置依赖注入关系.编码成本较高. 而上文我们提到 IOS Service Provide 包活 直接编码,配置文件,元数据 等方式实现. Spring BeanDefinitionReader 接口就是提供了配置文件方式构建容器.截至 Spring 4.x ,实现类有 GroovyBeanDefinitionReader,PropertiesBeanDefinitionReader,XmlBeanDefinitionReader.以 XML 为例</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span>  </span>&#123;</div><div class="line">  <span class="comment">// 创建 BeanFactory</span></div><div class="line">  DefaultListableBeanFactory beanRegistry = <span class="keyword">new</span> DefaultListableBeanFactory(); </div><div class="line">  <span class="comment">// 创建 XmlBeanDefinitionReader</span></div><div class="line">  XmlBeanDefinitionReader reader = <span class="keyword">new</span> XmlBeanDefinitionReader(registry);  </div><div class="line">  <span class="comment">// 配置资源解析</span></div><div class="line">  reader.loadBeanDefinitions(<span class="string">"classpath:spring.xml"</span>);  </div><div class="line">  <span class="comment">// 获取 Bean</span></div><div class="line">  User user = (User)container.getBean(<span class="string">"user"</span>);  </div><div class="line">  user.getCar();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[SpringCloud 第一弹 - Spring-cloud-config]]></title>
+      <url>http://yoursite.com/2016/10/25/SpringCloud-1/</url>
+      <content type="html"><![CDATA[<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><blockquote>
+<p>在一个高可用的<code>微服务架构</code>中,配置中心 是一个不可或缺的服务,用以集中管理应用程序在 运行时 所需的外部配置.避免了分布式系统所造成的配置无序,繁杂等问题.可配合版本管理系统,实现配置参数的实时推拉的方式刷新,并无需重启.典型应用如<code>Zookeeper</code>,百度的<code>DisConf</code>,淘宝的<code>Diamond</code>,<code>Spring Cloud Config</code> …</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="选型"><a href="#选型" class="headerlink" title="选型"></a>选型</h2><p>之所以选择 <code>Spring Cloud Config</code>:</p>
+<ul>
+<li>社区活跃,更新频繁.</li>
+<li>无痕衔接 Spring 4 属性管理 API</li>
+<li>极高的定制化能力.</li>
+<li>基于<code>SpringBoot</code>,天生的适合云服务的开发和部署.</li>
+</ul>
+<h2 id="Spring-属性管理："><a href="#Spring-属性管理：" class="headerlink" title="Spring 属性管理："></a>Spring 属性管理：</h2><p>其实是在 Spring3.1 就提供了新的属性管理API,功能强大,设计极其具有美感.</p>
+<h3 id="常见-API"><a href="#常见-API" class="headerlink" title="常见 API"></a>常见 API</h3><ul>
+<li><code>PropertySource</code>：属性源，key-value属性对抽象，比如用于配置数据</li>
+<li><code>PropertyResolver</code>：属性解析器，用于解析相应key的value</li>
+<li><code>Environment</code>：环境，本身是一个PropertyResolver，但是提供了<code>Profile</code>特性，即可以根据环境得到相应数据（即激活不同的Profile，可以得到不同的属性数据，比如用于多环境场景的配置（正式机、测试机、开发机DataSource配置））</li>
+<li><code>Profile</code>：剖面，只有激活的剖面的组件/配置才会注册到Spring容器，类似于maven中profile</li>
+</ul>
+<h2 id="开始构建"><a href="#开始构建" class="headerlink" title="开始构建"></a>开始构建</h2><h3 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h3><p>推荐使用 Maven 作为项目构建工具.(<a href="http://www.bysocket.com/?p=1124" target="_blank" rel="external">如若不了解 SpringBoot</a>)<br>目录如下:<br><img src="http://oextu0tw4.bkt.clouddn.com/14773239279405.jpg" alt=""></p>
+<h3 id="Pom-文件"><a href="#Pom-文件" class="headerlink" title="Pom 文件"></a>Pom 文件</h3><figure class="highlight xml"><figcaption><span>pom.xml</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-config-server<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="创建Main-Class"><a href="#创建Main-Class" class="headerlink" title="创建Main-Class"></a>创建Main-Class</h3><figure class="highlight java"><figcaption><span>Application.java</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * <span class="doctag">@see</span> org.springframework.boot.autoconfigure.SpringBootApplication  Annotate SpringBoot Application</div><div class="line"> * <span class="doctag">@see</span> org.springframework.cloud.config.server.EnableConfigServer    Annotate ConfigServer Application</div><div class="line"> *</div><div class="line"> * Created by Rapharino on 2016/10/02.</div><div class="line"> */</div><div class="line"><span class="meta">@SpringBootApplication</span></div><div class="line"><span class="meta">@EnableConfigServer</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Application</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Logger LOGGER = LoggerFactory.getLogger(Application.class);</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line"></div><div class="line">        ConfigurableApplicationContext configurableApplicationContext = SpringApplication</div><div class="line">                .run(Application.class, args);</div><div class="line">        Environment environment = configurableApplicationContext.getEnvironment();</div><div class="line"></div><div class="line">        LOGGER.info(<span class="string">"Server with active profiles:&#123;&#125; is running at http://&#123;&#125;:&#123;&#125;"</span>,environment.getActiveProfiles(),environment.getProperty(<span class="string">"server.address"</span>), environment.getProperty(<span class="string">"server.port"</span>));</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="仓储配置"><a href="#仓储配置" class="headerlink" title="仓储配置"></a>仓储配置</h3><p>推荐使用 git 作为配置文件的版本管理.<br><img src="http://oextu0tw4.bkt.clouddn.com/14773243182721.jpg" alt=""></p>
+<p>在 SpringCloud 家族中推荐,YAML 作为外部配置文件的声明语法.<br><a href="http://www.ruanyifeng.com/blog/2016/07/yaml.html?f=tt" target="_blank" rel="external">推荐阮一峰老师的关于 YAML 的简介</a></p>
+<h4 id="配置读取顺序"><a href="#配置读取顺序" class="headerlink" title="配置读取顺序"></a>配置读取顺序</h4><p><code>SpringBoot</code> 配置使用一个特别的顺序进行合理的配置和覆盖.允许开发者通过配置服务,静态文件,环境变量,命令行参数,注解类等,用以外化配置.覆盖顺序如下:</p>
+<ol>
+<li>命令行参数</li>
+<li>来自于 java:comp/env 的 JNDI 属性</li>
+<li>操作系统环境变量</li>
+<li>在打包的 jar 外的配置文件(包括 propertis,yaml,profile变量.)</li>
+<li>在打包的 jar 内的配置文件(包括 propertis,yaml,profile变量.)</li>
+<li>@Configuration 类的@PropertySource 注解</li>
+<li>应用框架默认配置</li>
+</ol>
+<p>并且可通过新的 Api 进行配置的优雅注入.如:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Bean</span></div><div class="line"><span class="meta">@Primary</span></div><div class="line"><span class="meta">@ConfigurationProperties</span>(prefix = <span class="string">"spring.datasource"</span>)</div><div class="line"><span class="function"><span class="keyword">public</span> DataSource <span class="title">dataSource</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">new</span> DruidDataSource();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h2><p>代码由 <a href="https://github.com/Gexin-Team/cloud-in-action" target="_blank" rel="external">https://github.com/Gexin-Team/cloud-in-action</a> 托管. 出自 Gexin 团队.</p>
+<h3 id="相关连接"><a href="#相关连接" class="headerlink" title="相关连接"></a>相关连接</h3><p><a href="http://docs.spring.io/spring-boot/docs/1.4.0.RELEASE/reference/html/" target="_blank" rel="external">http://docs.spring.io/spring-boot/docs/1.4.0.RELEASE/reference/html/</a><br><a href="http://cloud.spring.io/spring-cloud-static/spring-cloud-config/1.2.0.M1/" target="_blank" rel="external">http://cloud.spring.io/spring-cloud-static/spring-cloud-config/1.2.0.M1/</a><br><a href="https://segmentfault.com/a/1190000005029218" target="_blank" rel="external">https://segmentfault.com/a/1190000005029218</a></p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[努力不成为曾经讨厌的人]]></title>
+      <url>http://yoursite.com/2016/10/19/%E5%8A%AA%E5%8A%9B%E4%B8%8D%E6%88%90%E4%B8%BA%E6%9B%BE%E7%BB%8F%E8%AE%A8%E5%8E%8C%E7%9A%84%E4%BA%BA/</url>
+      <content type="html"><![CDATA[<p><img src="http://oextu0tw4.bkt.clouddn.com/2016-10-19-14768529565356.jpg" alt=""><br>想必 大多数人相对于锤子的产品和设计,更感兴趣的是老罗的相声.<br>这是锤子发布会 最悲哀和痛心的地方.<br>整场下来,老罗叹息声频出…<br>隐感到的 是心酸,妥协的无奈,还有强忍着 “极力迎合”的不屈…<br><a id="more"></a><br><img src="http://oextu0tw4.bkt.clouddn.com/2016-10-19-14768529489279.jpg" alt=""></p>
+<blockquote>
+<p>努力不成为自己曾讨厌过的人.<br>或者…尽量延迟这个时间的到来.<br>这是最大的妥协了.</p>
+</blockquote>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Hello World]]></title>
+      <url>http://yoursite.com/2016/10/10/hello-world/</url>
+      <content type="html"><![CDATA[<h2 id="难得此刻"><a href="#难得此刻" class="headerlink" title="难得此刻"></a>难得此刻</h2><blockquote>
+<p>终于”停一停”了.<br>   想着开始 HelloWorld!</p>
+</blockquote>
+<h2 id="关于Rapharino"><a href="#关于Rapharino" class="headerlink" title="关于Rapharino"></a>关于Rapharino</h2><p>全名为 Raphael + Carino (意大利文+英文)<br>Raphael :意大利文发音,《圣经·旧约》中的四大天使其二，司琴天使。<br>Carino :一首轻音乐.<br><a id="more"></a><br><img src="http://oextu0tw4.bkt.clouddn.com/yl.png" alt="y"><br>至于”Redvlevet”,只是因为”撞名”了.<br>因此吸取教训,Rapharino有关的主要 社交平台,账户,邮箱,域名.都在今晚被我注册了.~.~</p>
+<h2 id="关于博客"><a href="#关于博客" class="headerlink" title="关于博客"></a>关于博客</h2><p>关于博客的由来,这是个很严肃的答案.</p>
+<ul>
+<li>因为”Rapharino”.(50%)</li>
+<li>为了社交和自我营销增值.(20%)</li>
+<li>恐慌和发泄.(20%)</li>
+<li>满足程序员天生的个人英雄主义和可敬的开源思想.(10%)</li>
+</ul>
+<p>心血来潮,熬夜8小时就完成了.坚持更新吧…(包括 一些技术,一些吐槽,一些所思所感.)</p>
+<h2 id="关于建站"><a href="#关于建站" class="headerlink" title="关于建站"></a>关于建站</h2><p>git,gitpage,node,hexo,text…这是都是关键字,自行google吧.写的都很好,没必要重复了.不过建议配合 webstrom,mweb.多写点脚本.不然还是挺麻烦的.<br><strong><em> 或者给我留言,请我喝杯咖啡.免费为你搭建和维护.这个可以有吧?哈哈哈哈哈~~~ </em></strong><br><img src="http://oextu0tw4.bkt.clouddn.com/hh.jpg" alt="hh"></p>
+]]></content>
+    </entry>
+    
+  
+  
+    
+    <entry>
+      <title></title>
+      <url>http://yoursite.com/baidu_verify_6ArRBighOY.html</url>
+      <content type="html"><![CDATA[6ArRBighOY]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[分类]]></title>
+      <url>http://yoursite.com/categories/index.html</url>
+      <content type="html"></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[标签]]></title>
+      <url>http://yoursite.com/tags/index.html</url>
+      <content type="html"></content>
+    </entry>
+    
+  
+</search>
