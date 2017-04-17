@@ -5,7 +5,7 @@
     
     <entry>
       <title><![CDATA[IOC And Spring IOC]]></title>
-      <url>http://yoursite.com/coder/IOC-And-Spring-IOC</url>
+      <url>http://yoursite.com/coder/IOC-And-Spring-IOC/</url>
       <content type="html"><![CDATA[<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><blockquote>
 <p>从基本概念出发,由浅入深的了解 IOC 和 Spring IOC.</p>
 </blockquote>
@@ -66,7 +66,7 @@
     
     <entry>
       <title><![CDATA[Spring Boot Induction]]></title>
-      <url>http://yoursite.com/coder/Spring-Boot-Induction</url>
+      <url>http://yoursite.com/coder/Spring-Boot-Induction/</url>
       <content type="html"><![CDATA[<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><blockquote>
 <p>Spring Boot简化了基于Spring的应用开发，尝试封装 Spring 可怕繁杂的配置,以尽量少的配置创建一个独立的,产品级别的Spring应用。 Spring Boot使得Spring应用变的更轻量化,自动化,并为Spring平台及第三方库提供开箱即用的配置.Spring Boot 并未引入任何形式的代码生成技术,而是利用了 Spring4 的特性和项目构建实践 的优秀集成应用框架.因此本质上还是 Spring.</p>
 </blockquote>
@@ -165,7 +165,7 @@
     
     <entry>
       <title><![CDATA[SpringCloud 第一弹 - Spring-cloud-config]]></title>
-      <url>http://yoursite.com/coder/SpringCloud-1</url>
+      <url>http://yoursite.com/coder/SpringCloud-1/</url>
       <content type="html"><![CDATA[<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><blockquote>
 <p>在一个高可用的<code>微服务架构</code>中,配置中心 是一个不可或缺的服务,用以集中管理应用程序在 运行时 所需的外部配置.避免了分布式系统所造成的配置无序,繁杂等问题.可配合版本管理系统,实现配置参数的实时推拉的方式刷新,并无需重启.典型应用如<code>Zookeeper</code>,百度的<code>DisConf</code>,淘宝的<code>Diamond</code>,<code>Spring Cloud Config</code> …</p>
 </blockquote>
@@ -208,7 +208,7 @@
     
     <entry>
       <title><![CDATA[努力不成为曾经讨厌的人]]></title>
-      <url>http://yoursite.com/lifer/%E5%8A%AA%E5%8A%9B%E4%B8%8D%E6%88%90%E4%B8%BA%E6%9B%BE%E7%BB%8F%E8%AE%A8%E5%8E%8C%E7%9A%84%E4%BA%BA</url>
+      <url>http://yoursite.com/lifer/%E5%8A%AA%E5%8A%9B%E4%B8%8D%E6%88%90%E4%B8%BA%E6%9B%BE%E7%BB%8F%E8%AE%A8%E5%8E%8C%E7%9A%84%E4%BA%BA/</url>
       <content type="html"><![CDATA[<p><img src="http://oextu0tw4.bkt.clouddn.com/2016-10-19-14768529565356.jpg" alt=""><br>想必 大多数人相对于锤子的产品和设计,更感兴趣的是老罗的相声.<br>这是锤子发布会 最悲哀和痛心的地方.<br>整场下来,老罗叹息声频出…<br>隐感到的 是心酸,妥协的无奈,还有强忍着 “极力迎合”的不屈…<br><a id="more"></a><br><img src="http://oextu0tw4.bkt.clouddn.com/2016-10-19-14768529489279.jpg" alt=""></p>
 <blockquote>
 <p>努力不成为自己曾讨厌过的人.<br>或者…尽量延迟这个时间的到来.<br>这是最大的妥协了.</p>
@@ -218,7 +218,7 @@
     
     <entry>
       <title><![CDATA[Hello World]]></title>
-      <url>http://yoursite.com/lifer/hello-world</url>
+      <url>http://yoursite.com/lifer/hello-world/</url>
       <content type="html"><![CDATA[<h2 id="难得此刻"><a href="#难得此刻" class="headerlink" title="难得此刻"></a>难得此刻</h2><blockquote>
 <p>终于”停一停”了.<br>   想着开始 HelloWorld!</p>
 </blockquote>
