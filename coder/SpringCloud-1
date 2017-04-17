@@ -88,7 +88,7 @@
 在一个高可用的微服务架构中,配置中心 是一个不可或缺的服务,用以集中管理应用程序在 运行时 所需的外部配置.避免了分布式系统所造成的配置无序,繁杂等问题.可配合版本管理系统,实现配置参数的实时推拉的方式刷新,并无需重启.典型应用如Zookeeper,百度的DisConf,淘宝的Diamond,Spring Cloud Config …">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SpringCloud 第一弹 - Spring-cloud-config">
-<meta property="og:url" content="http://yoursite.com/2016/10/25/SpringCloud-1/index.html">
+<meta property="og:url" content="http://yoursite.com/coder/SpringCloud-1">
 <meta property="og:site_name" content="Rapharino">
 <meta property="og:description" content="摘要
 在一个高可用的微服务架构中,配置中心 是一个不可或缺的服务,用以集中管理应用程序在 运行时 所需的外部配置.避免了分布式系统所造成的配置无序,繁杂等问题.可配合版本管理系统,实现配置参数的实时推拉的方式刷新,并无需重启.典型应用如Zookeeper,百度的DisConf,淘宝的Diamond,Spring Cloud Config …">
@@ -120,7 +120,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/10/25/SpringCloud-1/"/>
+  <link rel="canonical" href="http://yoursite.com/coder/SpringCloud-1"/>
 
 
   <title> SpringCloud 第一弹 - Spring-cloud-config | Rapharino </title>
@@ -338,8 +338,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/10/25/SpringCloud-1/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/25/SpringCloud-1/" itemprop="commentsCount"></span>
+                <a href="/coder/SpringCloud-1#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="coder/SpringCloud-1" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -349,7 +349,7 @@
 
           
           
-             <span id="/2016/10/25/SpringCloud-1/" class="leancloud_visitors" data-flag-title="SpringCloud 第一弹 - Spring-cloud-config">
+             <span id="/coder/SpringCloud-1" class="leancloud_visitors" data-flag-title="SpringCloud 第一弹 - Spring-cloud-config">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -450,7 +450,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/10/19/努力不成为曾经讨厌的人/" rel="next" title="努力不成为曾经讨厌的人">
+              <a href="/lifer/努力不成为曾经讨厌的人" rel="next" title="努力不成为曾经讨厌的人">
                 <i class="fa fa-chevron-left"></i> 努力不成为曾经讨厌的人
               </a>
             
@@ -458,7 +458,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/10/29/Spring-Boot-Induction/" rel="prev" title="Spring Boot Induction">
+              <a href="/coder/Spring-Boot-Induction" rel="prev" title="Spring Boot Induction">
                 Spring Boot Induction <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -486,8 +486,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/10/25/SpringCloud-1/"
-           data-title="SpringCloud 第一弹 - Spring-cloud-config" data-url="http://yoursite.com/2016/10/25/SpringCloud-1/">
+      <div class="ds-thread" data-thread-key="coder/SpringCloud-1"
+           data-title="SpringCloud 第一弹 - Spring-cloud-config" data-url="http://yoursite.com/coder/SpringCloud-1">
       </div>
     
   </div>

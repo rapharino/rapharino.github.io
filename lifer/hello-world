@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="spring," />
+  <meta name="keywords" content="Other," />
 
 
 
@@ -84,23 +84,28 @@
 
 
 
-<meta name="description" content="摘要
-Spring Boot简化了基于Spring的应用开发，尝试封装 Spring 可怕繁杂的配置,以尽量少的配置创建一个独立的,产品级别的Spring应用。 Spring Boot使得Spring应用变的更轻量化,自动化,并为Spring平台及第三方库提供开箱即用的配置.Spring Boot 并未引入任何形式的代码生成技术,而是利用了 Spring4 的特性和项目构建实践 的优秀集成应用框架">
+<meta name="description" content="难得此刻
+终于”停一停”了.   想着开始 HelloWorld!
+
+关于Rapharino全名为 Raphael + Carino (意大利文+英文)Raphael :意大利文发音,《圣经·旧约》中的四大天使其二，司琴天使。Carino :一首轻音乐.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Spring Boot Induction">
-<meta property="og:url" content="http://yoursite.com/2016/10/29/Spring-Boot-Induction/index.html">
+<meta property="og:title" content="Hello World">
+<meta property="og:url" content="http://yoursite.com/lifer/hello-world">
 <meta property="og:site_name" content="Rapharino">
-<meta property="og:description" content="摘要
-Spring Boot简化了基于Spring的应用开发，尝试封装 Spring 可怕繁杂的配置,以尽量少的配置创建一个独立的,产品级别的Spring应用。 Spring Boot使得Spring应用变的更轻量化,自动化,并为Spring平台及第三方库提供开箱即用的配置.Spring Boot 并未引入任何形式的代码生成技术,而是利用了 Spring4 的特性和项目构建实践 的优秀集成应用框架">
-<meta property="og:image" content="https://ww4.sinaimg.cn/large/006tKfTcgy1fd68s6upl5j310i19wq5x.jpg">
-<meta property="og:image" content="http://ww4.sinaimg.cn/large/006tNbRwgy1fem2c3sce6j30z505jac7.jpg">
-<meta property="og:image" content="http://ww4.sinaimg.cn/large/006tNbRwgy1fem2cg9qmij30yx09x790.jpg">
-<meta property="og:updated_time" content="2017-04-14T08:44:48.000Z">
+<meta property="og:description" content="难得此刻
+终于”停一停”了.   想着开始 HelloWorld!
+
+关于Rapharino全名为 Raphael + Carino (意大利文+英文)Raphael :意大利文发音,《圣经·旧约》中的四大天使其二，司琴天使。Carino :一首轻音乐.">
+<meta property="og:image" content="http://oextu0tw4.bkt.clouddn.com/yl.png">
+<meta property="og:image" content="http://oextu0tw4.bkt.clouddn.com/hh.jpg">
+<meta property="og:updated_time" content="2016-10-25T15:32:05.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Spring Boot Induction">
-<meta name="twitter:description" content="摘要
-Spring Boot简化了基于Spring的应用开发，尝试封装 Spring 可怕繁杂的配置,以尽量少的配置创建一个独立的,产品级别的Spring应用。 Spring Boot使得Spring应用变的更轻量化,自动化,并为Spring平台及第三方库提供开箱即用的配置.Spring Boot 并未引入任何形式的代码生成技术,而是利用了 Spring4 的特性和项目构建实践 的优秀集成应用框架">
-<meta name="twitter:image" content="https://ww4.sinaimg.cn/large/006tKfTcgy1fd68s6upl5j310i19wq5x.jpg">
+<meta name="twitter:title" content="Hello World">
+<meta name="twitter:description" content="难得此刻
+终于”停一停”了.   想着开始 HelloWorld!
+
+关于Rapharino全名为 Raphael + Carino (意大利文+英文)Raphael :意大利文发音,《圣经·旧约》中的四大天使其二，司琴天使。Carino :一首轻音乐.">
+<meta name="twitter:image" content="http://oextu0tw4.bkt.clouddn.com/yl.png">
 
 
 
@@ -121,10 +126,10 @@ Spring Boot简化了基于Spring的应用开发，尝试封装 Spring 可怕繁�
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/10/29/Spring-Boot-Induction/"/>
+  <link rel="canonical" href="http://yoursite.com/lifer/hello-world"/>
 
 
-  <title> Spring Boot Induction | Rapharino </title>
+  <title> Hello World | Rapharino </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
@@ -297,7 +302,7 @@ Spring Boot简化了基于Spring的应用开发，尝试封装 Spring 可怕繁�
             
             
               
-                Spring Boot Induction
+                Hello World
               
             
           </h1>
@@ -309,8 +314,8 @@ Spring Boot简化了基于Spring的应用开发，尝试封装 Spring 可怕繁�
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-29T16:39:36+08:00" content="2016-10-29">
-              2016-10-29
+            <time itemprop="dateCreated" datetime="2016-10-10T23:08:12+08:00" content="2016-10-10">
+              2016-10-10
             </time>
           </span>
 
@@ -323,8 +328,8 @@ Spring Boot简化了基于Spring的应用开发，尝试封装 Spring 可怕繁�
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/coder/" itemprop="url" rel="index">
-                    <span itemprop="name">coder</span>
+                  <a href="/categories/lifer/" itemprop="url" rel="index">
+                    <span itemprop="name">lifer</span>
                   </a>
                 </span>
 
@@ -339,8 +344,8 @@ Spring Boot简化了基于Spring的应用开发，尝试封装 Spring 可怕繁�
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/10/29/Spring-Boot-Induction/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/29/Spring-Boot-Induction/" itemprop="commentsCount"></span>
+                <a href="/lifer/hello-world#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="lifer/hello-world" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -350,7 +355,7 @@ Spring Boot简化了基于Spring的应用开发，尝试封装 Spring 可怕繁�
 
           
           
-             <span id="/2016/10/29/Spring-Boot-Induction/" class="leancloud_visitors" data-flag-title="Spring Boot Induction">
+             <span id="/lifer/hello-world" class="leancloud_visitors" data-flag-title="Hello World">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -372,99 +377,19 @@ Spring Boot简化了基于Spring的应用开发，尝试封装 Spring 可怕繁�
       
 
       
-        <h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><blockquote>
-<p>Spring Boot简化了基于Spring的应用开发，尝试封装 Spring 可怕繁杂的配置,以尽量少的配置创建一个独立的,产品级别的Spring应用。 Spring Boot使得Spring应用变的更轻量化,自动化,并为Spring平台及第三方库提供开箱即用的配置.Spring Boot 并未引入任何形式的代码生成技术,而是利用了 Spring4 的特性和项目构建实践 的优秀集成应用框架.因此本质上还是 Spring.</p>
+        <h2 id="难得此刻"><a href="#难得此刻" class="headerlink" title="难得此刻"></a>难得此刻</h2><blockquote>
+<p>终于”停一停”了.<br>   想着开始 HelloWorld!</p>
 </blockquote>
-<a id="more"></a>
-<h3 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h3><ul>
-<li>为所有Spring开发提供一个从根本上更快，且随处可得的入门体验。</li>
-<li>开箱即用，但通过不采用默认设置可以快速摆脱这种方式。</li>
-<li>提供一系列大型项目常用的非功能性特征，比如：内嵌服务器，安全，指标，健康检测，外部化配置。</li>
-<li>没有冗余代码生成，也不需要XML配置。</li>
-</ul>
-<h3 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h3><ul>
-<li>自动配置: 针对常用的功能,提供默认配置.以满足最基础功能.</li>
-<li>起步依赖: 提供大量的扩展库, 实现各个功能.</li>
-<li>命令行界面: 可选特性,无需构建项目, 实现 SpringBoot的动态编译和运行.</li>
-<li>Actuator : 提供基础监控服务,提供运行时的检视应用内部情况的能力.包括<ul>
-<li>上下文中的 Bean</li>
-<li>自动配置策略(条件化配置)</li>
-<li>环境变量,系统属性,配置属性,命令行参数 等.</li>
-<li>线程状态</li>
-<li>HTTP 调用情况记录</li>
-<li>内存用量,垃圾回收,请求等相关指标.</li>
-</ul>
-</li>
-</ul>
-<h3 id="快速入门"><a href="#快速入门" class="headerlink" title="快速入门"></a>快速入门</h3><p>Spring Boot 极力的贴合 约定优于配置的设计范式.下面是一个 Demo,以最少的代码,实现一个 Web Service.</p>
-<h4 id="maven-构建项目"><a href="#maven-构建项目" class="headerlink" title="maven 构建项目"></a>maven 构建项目</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- boot parent --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">parent</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-parent<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">version</span>&gt;</span>1.3.2.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">relativePath</span>/&gt;</span> <span class="comment">&lt;!-- lookup parent from repository --&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">parent</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></div><div class="line">     	<span class="comment">&lt;!-- boot starter --&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line">	<span class="comment">&lt;!-- web starter --&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">build</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">plugins</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">plugin</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">build</span>&gt;</span></div></pre></td></tr></table></figure>
-<h4 id="编写代码"><a href="#编写代码" class="headerlink" title="编写代码"></a>编写代码</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@RestController</span></div><div class="line"><span class="meta">@EnableAutoConfiguration</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">App</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@RequestMapping</span>(<span class="string">"/"</span>)</div><div class="line">    <span class="function">String <span class="title">home</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="string">"Hello World!"</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">        SpringApplication.run(App.class, args);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p> 如果使用浏览器打开<a href="http://localhost:8080/" target="_blank" rel="external">localhost:8080</a>，你应该可以看到如下输出：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Hello World!</div></pre></td></tr></table></figure>
-<h3 id="启动流程"><a href="#启动流程" class="headerlink" title="启动流程"></a>启动流程</h3><p>rp-core 中的 SpringApplication 的实现方式和 SpringBoot 类似,主要借鉴其 自动配置,ApplicationContext生命周期管理功能.</p>
-<p><img src="https://ww4.sinaimg.cn/large/006tKfTcgy1fd68s6upl5j310i19wq5x.jpg" alt=""></p>
-<ol>
-<li><p>xml 或者 java code  实现对象构建和依赖绑定的描述信息.</p>
-</li>
-<li><p>创建AnnotationConfigApplicationContext(或者AnnotationConfigEmbeddedWebApplicationContext)  (上图错误.)</p>
-</li>
-<li><p><code>SpringFactoriesLoader.loadFactoryNames()</code>读取了ClassPath下面的<code>META-INF/spring.factories</code>文件.其中主要包括ApplicationContextInitializer,ApplicationListener,和@Configuration 其相关实现类(注解类).</p>
-</li>
-<li><p>为 ApplicationContext 注册ApplicationContextInitializer.ApplicationListener.(原生 Spring 提供的扩展)</p>
-</li>
-<li><p>启动 自动配置流程</p>
-<ol>
-<li><p>SpringBootApplication注解中带有EnableAutoConfiguration注解</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Target</span>(ElementType.TYPE)</div><div class="line"><span class="meta">@Retention</span>(RetentionPolicy.RUNTIME)</div><div class="line"><span class="meta">@Documented</span></div><div class="line"><span class="meta">@Inherited</span></div><div class="line"><span class="meta">@AutoConfigurationPackage</span></div><div class="line"><span class="meta">@Import</span>(EnableAutoConfigurationImportSelector.class)</div><div class="line"><span class="keyword">public</span> <span class="meta">@interface</span> EnableAutoConfiguration &#123;</div><div class="line"></div><div class="line">	String ENABLED_OVERRIDE_PROPERTY = <span class="string">"spring.boot.enableautoconfiguration"</span>;</div><div class="line"></div><div class="line">	<span class="comment">/**</span></div><div class="line">	 * Exclude specific auto-configuration classes such that they will never be applied.</div><div class="line">	 * <span class="doctag">@return</span> the classes to exclude</div><div class="line">	 */</div><div class="line">	Class&lt;?&gt;[] exclude() <span class="keyword">default</span> &#123;&#125;;</div><div class="line"></div><div class="line">	<span class="comment">/**</span></div><div class="line">	 * Exclude specific auto-configuration class names such that they will never be</div><div class="line">	 * applied.</div><div class="line">	 * <span class="doctag">@return</span> the class names to exclude</div><div class="line">	 * <span class="doctag">@since</span> 1.3.0</div><div class="line">	 */</div><div class="line">	String[] excludeName() <span class="keyword">default</span> &#123;&#125;;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>EnableAutoConfiguration 为容器注册了一个EnableAutoConfigurationImportSelector对象.它则是自动配置的核心类.</p>
-</li>
-<li><p>EnableAutoConfigurationImportSelector实现了ImportSelector的selectImports方法:</p>
-<ol>
-<li><p><code>SpringFactoriesLoader.loadFactoryNames()</code>获取配置相关的元数据.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"># Auto Configure</div><div class="line">org.springframework.boot.autoconfigure.EnableAutoConfiguration=\</div><div class="line">org.springframework.boot.autoconfigure.admin.SpringApplicationAdminJmxAutoConfiguration,\</div><div class="line">org.springframework.boot.autoconfigure.aop.AopAutoConfiguration,\</div><div class="line">org.springframework.boot.autoconfigure.amqp.RabbitAutoConfiguration,\</div><div class="line">org.springframework.boot.autoconfigure.batch.BatchAutoConfiguration,\</div><div class="line">org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration,\</div><div class="line">org.springframework.boot.autoconfigure.cassandra.CassandraAutoConfiguration,\</div><div class="line">org.springframework.boot.autoconfigure.cloud.CloudAutoConfiguration,\</div><div class="line">......</div><div class="line">org.springframework.boot.autoconfigure.webservices.WebServicesAutoConfiguration</div></pre></td></tr></table></figure>
-<p>​</p>
-</li>
-<li><p>必要的处理.如去重,排序,条件依赖.</p>
-</li>
-<li><p>返回交由容器注册相关实例对象.</p>
-</li>
-</ol>
-</li>
-<li><p>容器初始化完成.(额外会提供点周边服务,如 CommandLineRunner)</p>
-</li>
-</ol>
-</li>
-</ol>
-<h3 id="外置配置"><a href="#外置配置" class="headerlink" title="外置配置"></a>外置配置</h3><p>SpringBoot 兼顾 Spring的强大功能,并且提供极强的扩展性.在 SpringBoot及其周边项目有大量的 Starter模块,实现各个功能.如 spring-boot-starter-web,spring-boot-starter-jmx,spring-boot-starter-mybatis.他们有自己的默认配置,也可以通过 Spring 的属性 API 进行自定义.</p>
-<h4 id="属性API"><a href="#属性API" class="headerlink" title="属性API"></a>属性API</h4><ul>
-<li><code>PropertySource</code>：属性源，key-value属性对抽象，比如用于配置数据</li>
-<li><code>PropertyResolver</code>：属性解析器，用于解析相应key的value</li>
-<li><code>Environment</code>：环境，本身是一个PropertyResolver，但是提供了<code>Profile</code>特性，即可以根据环境得到相应数据（即激活不同的Profile，可以得到不同的属性数据，比如用于多环境场景的配置（正式机、测试机、开发机DataSource配置））</li>
-<li><code>Profile</code>：剖面，只有激活的剖面的组件/配置才会注册到Spring容器，类似于maven中profile</li>
-</ul>
-<h4 id="配置读取顺序"><a href="#配置读取顺序" class="headerlink" title="配置读取顺序"></a>配置读取顺序</h4><p><code>SpringBoot</code> 配置使用一个特别的顺序进行合理的配置和覆盖.允许开发者通过配置服务,静态文件,环境变量,命令行参数,注解类等,用以外化配置.覆盖顺序如下:</p>
-<ol>
-<li>命令行参数</li>
-<li>来自于 java:comp/env 的 JNDI 属性</li>
-<li>操作系统环境变量</li>
-<li>在打包的 jar 外的配置文件(包括 propertis,yaml,profile变量.)</li>
-<li>在打包的 jar 内的配置文件(包括 propertis,yaml,profile变量.)</li>
-<li>@Configuration 类的@PropertySource 注解</li>
-<li>应用框架默认配置</li>
-</ol>
-<p>application.properties和application.yml文件能放在以下四个位置。亦拥有覆盖顺序(高 - 低)</p>
+<h2 id="关于Rapharino"><a href="#关于Rapharino" class="headerlink" title="关于Rapharino"></a>关于Rapharino</h2><p>全名为 Raphael + Carino (意大利文+英文)<br>Raphael :意大利文发音,《圣经·旧约》中的四大天使其二，司琴天使。<br>Carino :一首轻音乐.<br><a id="more"></a><br><img src="http://oextu0tw4.bkt.clouddn.com/yl.png" alt="y"><br>至于”Redvlevet”,只是因为”撞名”了.<br>因此吸取教训,Rapharino有关的主要 社交平台,账户,邮箱,域名.都在今晚被我注册了.~.~</p>
+<h2 id="关于博客"><a href="#关于博客" class="headerlink" title="关于博客"></a>关于博客</h2><p>关于博客的由来,这是个很严肃的答案.</p>
 <ul>
-<li>外置，在相对于应用程序运行目录的/config子目录里。</li>
-<li>外置，在应用程序运行的目录里。</li>
-<li>内置，在config包内。</li>
-<li>内置，在Classpath根目录。</li>
+<li>因为”Rapharino”.(50%)</li>
+<li>为了社交和自我营销增值.(20%)</li>
+<li>恐慌和发泄.(20%)</li>
+<li>满足程序员天生的个人英雄主义和可敬的开源思想.(10%)</li>
 </ul>
-<p>每个模块都有自己的配置.在此不再赘述.</p>
-<h3 id="Actuator"><a href="#Actuator" class="headerlink" title="Actuator"></a>Actuator</h3><p>Actuator端点,实现应用内部信息监控检测.实际开发和生产(必要控制)场景下,它的作用必不可少.</p>
-<p><img src="http://ww4.sinaimg.cn/large/006tNbRwgy1fem2c3sce6j30z505jac7.jpg" alt="AD3362AA-6045-4C59-A763-CAF849464AF1"></p>
-<p><img src="http://ww4.sinaimg.cn/large/006tNbRwgy1fem2cg9qmij30yx09x790.jpg" alt="9A86C781-0629-4D8D-90B4-B5B007FDB514"></p>
-<p>(除了提供 rest service.还提供了 remote shell ,和 mbean 方式,目的类似).</p>
+<p>心血来潮,熬夜8小时就完成了.坚持更新吧…(包括 一些技术,一些吐槽,一些所思所感.)</p>
+<h2 id="关于建站"><a href="#关于建站" class="headerlink" title="关于建站"></a>关于建站</h2><p>git,gitpage,node,hexo,text…这是都是关键字,自行google吧.写的都很好,没必要重复了.不过建议配合 webstrom,mweb.多写点脚本.不然还是挺麻烦的.<br><strong><em> 或者给我留言,请我喝杯咖啡.免费为你搭建和维护.这个可以有吧?哈哈哈哈哈~~~ </em></strong><br><img src="http://oextu0tw4.bkt.clouddn.com/hh.jpg" alt="hh"></p>
 
           <hr>
           <h6 id="原创出处-www-rapharino-com-作者-Rapharino-IN-请继续关注Rapharino的博客">
@@ -494,7 +419,7 @@ Spring Boot简化了基于Spring的应用开发，尝试封装 Spring 可怕繁�
       
         <div class="post-tags">
           
-            <a href="/tags/spring/" rel="tag">#spring</a>
+            <a href="/tags/Other/" rel="tag">#Other</a>
           
         </div>
       
@@ -503,16 +428,12 @@ Spring Boot简化了基于Spring的应用开发，尝试封装 Spring 可怕繁�
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/10/25/SpringCloud-1/" rel="next" title="SpringCloud 第一弹 - Spring-cloud-config">
-                <i class="fa fa-chevron-left"></i> SpringCloud 第一弹 - Spring-cloud-config
-              </a>
-            
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/11/02/IOC-And-Spring-IOC/" rel="prev" title="IOC And Spring IOC">
-                IOC And Spring IOC <i class="fa fa-chevron-right"></i>
+              <a href="/lifer/努力不成为曾经讨厌的人" rel="prev" title="努力不成为曾经讨厌的人">
+                努力不成为曾经讨厌的人 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -539,8 +460,8 @@ Spring Boot简化了基于Spring的应用开发，尝试封装 Spring 可怕繁�
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/10/29/Spring-Boot-Induction/"
-           data-title="Spring Boot Induction" data-url="http://yoursite.com/2016/10/29/Spring-Boot-Induction/">
+      <div class="ds-thread" data-thread-key="lifer/hello-world"
+           data-title="Hello World" data-url="http://yoursite.com/lifer/hello-world">
       </div>
     
   </div>
@@ -669,7 +590,7 @@ Spring Boot简化了基于Spring的应用开发，尝试封装 Spring 可怕繁�
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#摘要"><span class="nav-number">1.</span> <span class="nav-text">摘要</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#目标"><span class="nav-number">1.1.</span> <span class="nav-text">目标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#特性"><span class="nav-number">1.2.</span> <span class="nav-text">特性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#快速入门"><span class="nav-number">1.3.</span> <span class="nav-text">快速入门</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#maven-构建项目"><span class="nav-number">1.3.1.</span> <span class="nav-text">maven 构建项目</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#编写代码"><span class="nav-number">1.3.2.</span> <span class="nav-text">编写代码</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动流程"><span class="nav-number">1.4.</span> <span class="nav-text">启动流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#外置配置"><span class="nav-number">1.5.</span> <span class="nav-text">外置配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#属性API"><span class="nav-number">1.5.1.</span> <span class="nav-text">属性API</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置读取顺序"><span class="nav-number">1.5.2.</span> <span class="nav-text">配置读取顺序</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Actuator"><span class="nav-number">1.6.</span> <span class="nav-text">Actuator</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#难得此刻"><span class="nav-number">1.</span> <span class="nav-text">难得此刻</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于Rapharino"><span class="nav-number">2.</span> <span class="nav-text">关于Rapharino</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于博客"><span class="nav-number">3.</span> <span class="nav-text">关于博客</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于建站"><span class="nav-number">4.</span> <span class="nav-text">关于建站</span></a></li></ol></div>
             
           </div>
         </section>
