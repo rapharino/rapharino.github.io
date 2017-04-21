@@ -6,7 +6,7 @@
     <entry>
       <title><![CDATA[Spring Cloud - Ribbon]]></title>
       <url>http://rapharino.com/coder/Spring-Cloud-Ribbon/</url>
-      <content type="html"><![CDATA[<p>依然 是 依赖于 Srping-Ioc 和自动配置的方式,实现 客户端负载均衡器的初始化配置. 由于 代码量多,层次关联复杂.因此选择从核心类开始阅读<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>依然 是 依赖于 Spring-Ioc 和自动配置的方式,实现 客户端负载均衡器的初始化配置. 由于 代码量多,层次关联复杂.因此选择从核心类开始阅读<br><a id="more"></a></p>
 <blockquote>
 <p>N : Netflix 的设计的类结构</p>
 <p>SN : Spring 集成 Netflix 设计的类结构</p>
