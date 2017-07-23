@@ -4,6 +4,74 @@
   
     
     <entry>
+      <title><![CDATA[线程状态(BLOCKED, WAITING, AND TIMED_WAITING)]]></title>
+      <url>http://rapharino.com/coder/%E7%BA%BF%E7%A8%8B%E7%8A%B6%E6%80%81-BLOCKED-WAITING-AND-TIMED-WAITING/</url>
+      <content type="html"><![CDATA[<p><a href="https://blog.fastthread.io/2016/07/20/whats-the-difference-between-blocked-waiting-and-timed_waiting-explained-to-real-life-examples/" target="_blank" rel="external">英文原文</a><br><a id="more"></a></p>
+<blockquote>
+<p>BLOCKED, WAITING, and TIMED_WAITING are important thread states, but often confusing to many of us. One must have a proper understanding of both in order to analyze thread dumps. Using real-life examples, this article breaks down each state into simpler terms.</p>
+</blockquote>
+<p>BLOCKED, WAITING, and TIMED_WAITING 是三个重要的线程状态.但经常让人困惑.分析thread dumps 缺必须有清楚的认识.本文通过实例将各个状态分解为更加简单的术语</p>
+<blockquote>
+<h3 id="BLOCKED"><a href="#BLOCKED" class="headerlink" title="BLOCKED"></a>BLOCKED</h3><p>Java doc formally defines <strong>BLOCKED</strong> state as: “A thread that is blocked waiting for a monitor lock is in this state.”</p>
+<p><strong>Real-life example: </strong>Today you are going for a job interview. This is your dream job, which you have been targeting for last few years. You woke up early in the morning, got ready, put on your best outfit, looking sharp in front of the mirror. Now you step out to your garage and realize that your wife has already taken the car. In this scenario, you only have one car, so what will happen? In real life, a fight may happen. However, you are <strong>BLOCKED</strong> because your wife has already taken the car. You won’t be able to go to the interview.</p>
+<p>This is the <strong>BLOCKED</strong> state. Explaining it in technical terms, you are the thread <strong>T1</strong> and your wife is the thread <strong>T2</strong> and lock is the car. <strong>T1</strong> is <strong>BLOCKED</strong> on the lock (i.e. the car) because <strong>T2</strong> has already acquired this lock.</p>
+<p><strong>Titbit: </strong>A Thread will enter into <strong>BLOCKED </strong>state when it’s waiting for a monitor lock to enter a synchronized block/method or reenter a synchronized block/method after calling Object#wait() method.</p>
+</blockquote>
+<h3 id="BLOCKED-1"><a href="#BLOCKED-1" class="headerlink" title="BLOCKED"></a>BLOCKED</h3><p>Java doc 对BLOCKED的正式定义为 : “一个线程等待monitor lock而被阻塞时的状态”</p>
+<h5 id="实例"><a href="#实例" class="headerlink" title="实例:"></a>实例:</h5><p>今天你要去面试一份工作。这是你最近几年梦寐以求的工作。你一早就起床了，准备好，穿上最好的衣服，在镜子前显得很屌。现在你走出车库，发现你妻子已经把车开走了。在这种情况下，你只有一辆车，那么会发生什么？在现实生活中，你可能会抓狂。不不管怎样，你被<strong>BLOCKED</strong>了，因为你妻子已经开车走了。你不能去面试了。</p>
+<p>这就是<strong>BLOCKED</strong> 的状态.技术术语解释, 你是线程 T1,你老婆的线程 T2,而车是Lock.由于 T2 已持有当前 Lock,T1就被锁而阻塞.</p>
+<h5 id="Titbit"><a href="#Titbit" class="headerlink" title="Titbit"></a>Titbit</h5><p>当线程 进入一个同步块/方法 而等待 monitor lock 或者 当调用Object#wait()方法, 重入一个同步块/方法 时, 此时的线程就是<strong>BLOCKED</strong>状态.</p>
+<blockquote>
+<h3 id="WAITING"><a href="#WAITING" class="headerlink" title="WAITING"></a>WAITING</h3><p>Java doc formally defines <strong>WAITING</strong> state as: “A thread that is waiting indefinitely for another thread to perform a particular action is in this state.”</p>
+<p><strong>Real-life example: </strong>Let’s say a few minutes later your wife comes back home with the car. Now you realize that the interview time is approaching, and there is a long distance to drive to get there. So, you put all the power on the gas pedal in the car. You drive at 100 mph when the allowed speed limit is only 60 mph. Your luck, a traffic cop sees you driving over the speed limit, and he pulls you over to the curb. Now you are entering into the <strong>WAITING</strong> state, my friend. You stop driving the car and sit idly in the car until the cop investigates you and then lets you go. Basically, until he lets you go, you are stuck in the <strong>WAITING</strong> state.</p>
+<p>Explaining it in technical terms, you are thread <strong>T1</strong> and the cop is thread <strong>T2</strong>. You released your lock (i.e. you stopped driving the car) and went into the <strong>WAITING</strong> state. Until the cop (i.e. <strong>T2</strong>) lets you go, you will be stuck in this <strong>WAITING</strong> state.</p>
+<p><strong>Titbit:</strong> A Thread will enter into WAITING state when it’s calling one of the following methods:</p>
+<ol>
+<li>Object#wait() with no timeout</li>
+<li>Thread#join() with no timeout</li>
+<li>LockSupport#park()</li>
+</ol>
+<p>Thread that has called Object.wait() on an object is in <strong>WAITING </strong>state until another thread to call Object.notify() or Object.notifyAll() on that object. A thread that has called Thread.join() is in<strong>WAITING</strong> state for a specified thread to terminate.</p>
+</blockquote>
+<h3 id="WAITING-1"><a href="#WAITING-1" class="headerlink" title="WAITING"></a>WAITING</h3><p>Java doc 对<strong>WAITING</strong>的正式定义为: “一个线程无限期的等待另一个线程执行特定的操作时的状态”</p>
+<h5 id="实例-1"><a href="#实例-1" class="headerlink" title="实例:"></a>实例:</h5><p>比如 不久后你的妻子开着车回到家,现在你意识到你的面试时间快到了,开车去的话还有一段很长的路程.所以你使最大的力气踩在了车上的油门踏板.当时速限制为每小时60英里时,你以每小时100英里的速度开车.不过很不幸,一个交警看见你超速,把你拉到了路边.现在 你就将进入了<strong>WAITING</strong>状态. 我的朋友,你停下车,坐在车里,等待交警调查结束才放你走.基本上, 你就处于一个<strong>WAITING</strong>状态, 直到他肯让你走.</p>
+<p>技术术语解释, 你是线程 T1, 交警是线程 T2. 你释放你的锁(也就是不开车了),然后进入<strong>WAITING</strong>状态.你将会一直为<strong>WAITING</strong>状态,直到交警让你走.</p>
+<h5 id="Titbit-1"><a href="#Titbit-1" class="headerlink" title="Titbit:"></a>Titbit:</h5><p>当调用以下方法之一,当前会线程进入<strong>WAITING</strong>状态:</p>
+<ul>
+<li>Object#wait() with no timeout</li>
+<li>Thread#join() with no timeout</li>
+<li>LockSupport#park()</li>
+</ul>
+<p>一个对象的 Object.wait() 被调用,当前线程进入<strong>WAITING</strong>状态,直到另外一个线程 通过这个对象调用Object.notify() or Object.notifyAll(). 一个线程 由于调用Thread.join(),也会进入<strong>WAITING</strong>状态,在目标线程执行结束后恢复.</p>
+<blockquote>
+<h3 id="TIMED-WAITING"><a href="#TIMED-WAITING" class="headerlink" title="TIMED_WAITING"></a>TIMED_WAITING</h3><p>Java doc formally defines <strong>TIMED_WAITING</strong> state as: “A thread that is waiting for another thread to perform an action for up to a specified waiting time is in this state.”</p>
+<p><strong>Real-life example:  </strong>Despite all the drama, you did extremely well in the interview, impressed everyone and got this high paying job. (Congratulations!) You come back home and tell your neighbor about this new job and how excited you are about it. Your friend says that he is also working in the same office building. He suggests that the two of you should drive together. You think it’s a great idea. So on the first day of work, you go to his house. You stop your car in front of his house. You wait for 10 minutes, but your neighbor still doesn’t come out. You go ahead and start driving to work, as you don’t want to be delayed on your first day.  Now this is <strong>TIMED_WAITING</strong>.</p>
+<p>Explaining it in technical terms, you are thread <strong>T1</strong>, and your neighbor is thread <strong>T2</strong>. You release the <strong>lock</strong>(i.e. stop driving the car) and wait <strong>up to</strong> 10 minutes. If your neighbor, <strong>T2</strong>, doesn’t come out in 10 minutes, you start driving the car again.</p>
+<p><strong>Titbit:</strong> A Thread will enter into <strong>TIMED_WAITING </strong>state when it’s calling one of the following methods:</p>
+<ol>
+<li>Thread#sleep()</li>
+<li>Object#wait() with timeout</li>
+<li>Thread#join() with timeout</li>
+<li>LockSupport#parkNanos()</li>
+<li>LockSupport#parkUntil()</li>
+</ol>
+</blockquote>
+<h4 id="TIMED-WAITING-1"><a href="#TIMED-WAITING-1" class="headerlink" title="TIMED_WAITING"></a>TIMED_WAITING</h4><p>Java doc 正式定义<strong>TIMED_WAITING</strong>为: “一个线程等待另一个线程在指定时间内执行特定操作时的状态”</p>
+<h5 id="实例-2"><a href="#实例-2" class="headerlink" title="实例:"></a>实例:</h5><p>尽管如此,你在面试中表现得非常出色,给每个人留下了深刻的印象,并得到了高薪的工作.(祝贺你!) 你回到家里,告诉你的邻居这项新工作,你对此有多兴奋.你的朋友说他也在同一栋办公楼里工作.他建议你们两个一起开车.你会认为这是个好主意吗? 所以在上班的第一天,你去他家.你把车停在他房子前面.你等了10分钟,但你的邻居还没出来.你继续开车上班.因为你不想在第一天被耽误。现在这是<strong>TIMED_WAITING</strong>。</p>
+<p>技术术语解释, 你是线程 T1, 你的邻居是线程 T2. 你释放你的锁(也就是不开车),然后等到10分钟.如果你的邻居 T2 没有在十分钟内出来,你将重新将车开走.</p>
+<p><strong>Titbit:</strong></p>
+<p>当调用以下方法之一,当前会线程进入<strong>TIMED_WAITING</strong>状态:</p>
+<ul>
+<li>Thread#sleep()</li>
+<li>Object#wait() with timeout</li>
+<li>Thread#join() with timeout</li>
+<li>LockSupport#parkNanos()</li>
+<li>LockSupport#parkUntil()</li>
+</ul>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[Spring Cloud - Ribbon]]></title>
       <url>http://rapharino.com/coder/Spring-Cloud-Ribbon/</url>
       <content type="html"><![CDATA[<p>依然 是 依赖于 Spring-Ioc 和自动配置的方式,实现 客户端负载均衡器的初始化配置. 由于 代码量多,层次关联复杂.因此选择从核心类开始阅读<br><a id="more"></a></p>

@@ -84,16 +84,16 @@
 
 
 
-<meta name="description" content="Not just coder or the poet">
-<meta property="og:type" content="website">
-<meta property="og:title" content="标签">
-<meta property="og:url" content="http://rapharino.com/tags/index.html">
+<meta name="description" content="英文原文">
+<meta property="og:type" content="article">
+<meta property="og:title" content="线程状态(BLOCKED, WAITING, AND TIMED_WAITING)">
+<meta property="og:url" content="http://rapharino.com/coder/线程状态-BLOCKED-WAITING-AND-TIMED-WAITING/index.html">
 <meta property="og:site_name" content="Rapharino">
-<meta property="og:description" content="Not just coder or the poet">
-<meta property="og:updated_time" content="2017-04-13T14:27:32.000Z">
+<meta property="og:description" content="英文原文">
+<meta property="og:updated_time" content="2017-07-23T14:53:04.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="标签">
-<meta name="twitter:description" content="Not just coder or the poet">
+<meta name="twitter:title" content="线程状态(BLOCKED, WAITING, AND TIMED_WAITING)">
+<meta name="twitter:description" content="英文原文">
 
 
 
@@ -114,16 +114,10 @@
 
 
 
-  <link rel="canonical" href="http://rapharino.com/tags/"/>
+  <link rel="canonical" href="http://rapharino.com/coder/线程状态-BLOCKED-WAITING-AND-TIMED-WAITING/"/>
 
 
-  <title>
-  
-
-  
-    标签 | Rapharino
-  
-</title>
+  <title> 线程状态(BLOCKED, WAITING, AND TIMED_WAITING) | Rapharino </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
@@ -144,7 +138,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
@@ -277,16 +271,216 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
     
-      <div class="tag-cloud">
-        <div class="tag-cloud-title">
-            目前共计 6 个标签
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                线程状态(BLOCKED, WAITING, AND TIMED_WAITING)
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-07-23T22:51:07+08:00" content="2017-07-23">
+              2017-07-23
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/coder/" itemprop="url" rel="index">
+                    <span itemprop="name">coder</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/coder/线程状态-BLOCKED-WAITING-AND-TIMED-WAITING/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="coder/线程状态-BLOCKED-WAITING-AND-TIMED-WAITING/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/coder/线程状态-BLOCKED-WAITING-AND-TIMED-WAITING/" class="leancloud_visitors" data-flag-title="线程状态(BLOCKED, WAITING, AND TIMED_WAITING)">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
         </div>
-        <div class="tag-cloud-tags">
-          <a href="/tags/Java/" style="font-size: 12px; color: #ccc">Java</a> <a href="/tags/Other/" style="font-size: 21px; color: #6f6f6f">Other</a> <a href="/tags/ribbon/" style="font-size: 12px; color: #ccc">ribbon</a> <a href="/tags/spring/" style="font-size: 30px; color: #111">spring</a> <a href="/tags/分布式/" style="font-size: 12px; color: #ccc">分布式</a> <a href="/tags/微服务/" style="font-size: 12px; color: #ccc">微服务</a>
-        </div>
-      </div>
+      </header>
     
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><a href="https://blog.fastthread.io/2016/07/20/whats-the-difference-between-blocked-waiting-and-timed_waiting-explained-to-real-life-examples/" target="_blank" rel="external">英文原文</a><br><a id="more"></a></p>
+<blockquote>
+<p>BLOCKED, WAITING, and TIMED_WAITING are important thread states, but often confusing to many of us. One must have a proper understanding of both in order to analyze thread dumps. Using real-life examples, this article breaks down each state into simpler terms.</p>
+</blockquote>
+<p>BLOCKED, WAITING, and TIMED_WAITING 是三个重要的线程状态.但经常让人困惑.分析thread dumps 缺必须有清楚的认识.本文通过实例将各个状态分解为更加简单的术语</p>
+<blockquote>
+<h3 id="BLOCKED"><a href="#BLOCKED" class="headerlink" title="BLOCKED"></a>BLOCKED</h3><p>Java doc formally defines <strong>BLOCKED</strong> state as: “A thread that is blocked waiting for a monitor lock is in this state.”</p>
+<p><strong>Real-life example: </strong>Today you are going for a job interview. This is your dream job, which you have been targeting for last few years. You woke up early in the morning, got ready, put on your best outfit, looking sharp in front of the mirror. Now you step out to your garage and realize that your wife has already taken the car. In this scenario, you only have one car, so what will happen? In real life, a fight may happen. However, you are <strong>BLOCKED</strong> because your wife has already taken the car. You won’t be able to go to the interview.</p>
+<p>This is the <strong>BLOCKED</strong> state. Explaining it in technical terms, you are the thread <strong>T1</strong> and your wife is the thread <strong>T2</strong> and lock is the car. <strong>T1</strong> is <strong>BLOCKED</strong> on the lock (i.e. the car) because <strong>T2</strong> has already acquired this lock.</p>
+<p><strong>Titbit: </strong>A Thread will enter into <strong>BLOCKED </strong>state when it’s waiting for a monitor lock to enter a synchronized block/method or reenter a synchronized block/method after calling Object#wait() method.</p>
+</blockquote>
+<h3 id="BLOCKED-1"><a href="#BLOCKED-1" class="headerlink" title="BLOCKED"></a>BLOCKED</h3><p>Java doc 对BLOCKED的正式定义为 : “一个线程等待monitor lock而被阻塞时的状态”</p>
+<h5 id="实例"><a href="#实例" class="headerlink" title="实例:"></a>实例:</h5><p>今天你要去面试一份工作。这是你最近几年梦寐以求的工作。你一早就起床了，准备好，穿上最好的衣服，在镜子前显得很屌。现在你走出车库，发现你妻子已经把车开走了。在这种情况下，你只有一辆车，那么会发生什么？在现实生活中，你可能会抓狂。不不管怎样，你被<strong>BLOCKED</strong>了，因为你妻子已经开车走了。你不能去面试了。</p>
+<p>这就是<strong>BLOCKED</strong> 的状态.技术术语解释, 你是线程 T1,你老婆的线程 T2,而车是Lock.由于 T2 已持有当前 Lock,T1就被锁而阻塞.</p>
+<h5 id="Titbit"><a href="#Titbit" class="headerlink" title="Titbit"></a>Titbit</h5><p>当线程 进入一个同步块/方法 而等待 monitor lock 或者 当调用Object#wait()方法, 重入一个同步块/方法 时, 此时的线程就是<strong>BLOCKED</strong>状态.</p>
+<blockquote>
+<h3 id="WAITING"><a href="#WAITING" class="headerlink" title="WAITING"></a>WAITING</h3><p>Java doc formally defines <strong>WAITING</strong> state as: “A thread that is waiting indefinitely for another thread to perform a particular action is in this state.”</p>
+<p><strong>Real-life example: </strong>Let’s say a few minutes later your wife comes back home with the car. Now you realize that the interview time is approaching, and there is a long distance to drive to get there. So, you put all the power on the gas pedal in the car. You drive at 100 mph when the allowed speed limit is only 60 mph. Your luck, a traffic cop sees you driving over the speed limit, and he pulls you over to the curb. Now you are entering into the <strong>WAITING</strong> state, my friend. You stop driving the car and sit idly in the car until the cop investigates you and then lets you go. Basically, until he lets you go, you are stuck in the <strong>WAITING</strong> state.</p>
+<p>Explaining it in technical terms, you are thread <strong>T1</strong> and the cop is thread <strong>T2</strong>. You released your lock (i.e. you stopped driving the car) and went into the <strong>WAITING</strong> state. Until the cop (i.e. <strong>T2</strong>) lets you go, you will be stuck in this <strong>WAITING</strong> state.</p>
+<p><strong>Titbit:</strong> A Thread will enter into WAITING state when it’s calling one of the following methods:</p>
+<ol>
+<li>Object#wait() with no timeout</li>
+<li>Thread#join() with no timeout</li>
+<li>LockSupport#park()</li>
+</ol>
+<p>Thread that has called Object.wait() on an object is in <strong>WAITING </strong>state until another thread to call Object.notify() or Object.notifyAll() on that object. A thread that has called Thread.join() is in<strong>WAITING</strong> state for a specified thread to terminate.</p>
+</blockquote>
+<h3 id="WAITING-1"><a href="#WAITING-1" class="headerlink" title="WAITING"></a>WAITING</h3><p>Java doc 对<strong>WAITING</strong>的正式定义为: “一个线程无限期的等待另一个线程执行特定的操作时的状态”</p>
+<h5 id="实例-1"><a href="#实例-1" class="headerlink" title="实例:"></a>实例:</h5><p>比如 不久后你的妻子开着车回到家,现在你意识到你的面试时间快到了,开车去的话还有一段很长的路程.所以你使最大的力气踩在了车上的油门踏板.当时速限制为每小时60英里时,你以每小时100英里的速度开车.不过很不幸,一个交警看见你超速,把你拉到了路边.现在 你就将进入了<strong>WAITING</strong>状态. 我的朋友,你停下车,坐在车里,等待交警调查结束才放你走.基本上, 你就处于一个<strong>WAITING</strong>状态, 直到他肯让你走.</p>
+<p>技术术语解释, 你是线程 T1, 交警是线程 T2. 你释放你的锁(也就是不开车了),然后进入<strong>WAITING</strong>状态.你将会一直为<strong>WAITING</strong>状态,直到交警让你走.</p>
+<h5 id="Titbit-1"><a href="#Titbit-1" class="headerlink" title="Titbit:"></a>Titbit:</h5><p>当调用以下方法之一,当前会线程进入<strong>WAITING</strong>状态:</p>
+<ul>
+<li>Object#wait() with no timeout</li>
+<li>Thread#join() with no timeout</li>
+<li>LockSupport#park()</li>
+</ul>
+<p>一个对象的 Object.wait() 被调用,当前线程进入<strong>WAITING</strong>状态,直到另外一个线程 通过这个对象调用Object.notify() or Object.notifyAll(). 一个线程 由于调用Thread.join(),也会进入<strong>WAITING</strong>状态,在目标线程执行结束后恢复.</p>
+<blockquote>
+<h3 id="TIMED-WAITING"><a href="#TIMED-WAITING" class="headerlink" title="TIMED_WAITING"></a>TIMED_WAITING</h3><p>Java doc formally defines <strong>TIMED_WAITING</strong> state as: “A thread that is waiting for another thread to perform an action for up to a specified waiting time is in this state.”</p>
+<p><strong>Real-life example:  </strong>Despite all the drama, you did extremely well in the interview, impressed everyone and got this high paying job. (Congratulations!) You come back home and tell your neighbor about this new job and how excited you are about it. Your friend says that he is also working in the same office building. He suggests that the two of you should drive together. You think it’s a great idea. So on the first day of work, you go to his house. You stop your car in front of his house. You wait for 10 minutes, but your neighbor still doesn’t come out. You go ahead and start driving to work, as you don’t want to be delayed on your first day.  Now this is <strong>TIMED_WAITING</strong>.</p>
+<p>Explaining it in technical terms, you are thread <strong>T1</strong>, and your neighbor is thread <strong>T2</strong>. You release the <strong>lock</strong>(i.e. stop driving the car) and wait <strong>up to</strong> 10 minutes. If your neighbor, <strong>T2</strong>, doesn’t come out in 10 minutes, you start driving the car again.</p>
+<p><strong>Titbit:</strong> A Thread will enter into <strong>TIMED_WAITING </strong>state when it’s calling one of the following methods:</p>
+<ol>
+<li>Thread#sleep()</li>
+<li>Object#wait() with timeout</li>
+<li>Thread#join() with timeout</li>
+<li>LockSupport#parkNanos()</li>
+<li>LockSupport#parkUntil()</li>
+</ol>
+</blockquote>
+<h4 id="TIMED-WAITING-1"><a href="#TIMED-WAITING-1" class="headerlink" title="TIMED_WAITING"></a>TIMED_WAITING</h4><p>Java doc 正式定义<strong>TIMED_WAITING</strong>为: “一个线程等待另一个线程在指定时间内执行特定操作时的状态”</p>
+<h5 id="实例-2"><a href="#实例-2" class="headerlink" title="实例:"></a>实例:</h5><p>尽管如此,你在面试中表现得非常出色,给每个人留下了深刻的印象,并得到了高薪的工作.(祝贺你!) 你回到家里,告诉你的邻居这项新工作,你对此有多兴奋.你的朋友说他也在同一栋办公楼里工作.他建议你们两个一起开车.你会认为这是个好主意吗? 所以在上班的第一天,你去他家.你把车停在他房子前面.你等了10分钟,但你的邻居还没出来.你继续开车上班.因为你不想在第一天被耽误。现在这是<strong>TIMED_WAITING</strong>。</p>
+<p>技术术语解释, 你是线程 T1, 你的邻居是线程 T2. 你释放你的锁(也就是不开车),然后等到10分钟.如果你的邻居 T2 没有在十分钟内出来,你将重新将车开走.</p>
+<p><strong>Titbit:</strong></p>
+<p>当调用以下方法之一,当前会线程进入<strong>TIMED_WAITING</strong>状态:</p>
+<ul>
+<li>Thread#sleep()</li>
+<li>Object#wait() with timeout</li>
+<li>Thread#join() with timeout</li>
+<li>LockSupport#parkNanos()</li>
+<li>LockSupport#parkUntil()</li>
+</ul>
+
+          <hr>
+          <h6 id="原创出处-www-rapharino-com-作者-Rapharino-IN-请继续关注Rapharino的博客">
+            <a href="#原创出处-www-rapharino-com-作者-Rapharino-IN-请继续关注Rapharino的博客" class="headerlink"
+                title="原创出处:www.rapharino.com 作者:Rapharino IN,请继续关注Rapharino的博客."></a>
+            原创出处:www.rapharino.com 作者:Rapharino IN,请继续关注Rapharino的博客.
+          </h6>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/coder/Spring-Cloud-Ribbon/" rel="next" title="Spring Cloud - Ribbon">
+                <i class="fa fa-chevron-left"></i> Spring Cloud - Ribbon
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -297,8 +491,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="tags/index.html"
-           data-title="标签" data-url="http://rapharino.com/tags/index.html">
+      <div class="ds-thread" data-thread-key="coder/线程状态-BLOCKED-WAITING-AND-TIMED-WAITING/"
+           data-title="线程状态(BLOCKED, WAITING, AND TIMED_WAITING)" data-url="http://rapharino.com/coder/线程状态-BLOCKED-WAITING-AND-TIMED-WAITING/">
       </div>
     
   </div>
@@ -322,8 +516,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://oextu0tw4.bkt.clouddn.com/blog/image/tx.png"
@@ -411,6 +614,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#BLOCKED"><span class="nav-number">1.</span> <span class="nav-text">BLOCKED</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BLOCKED-1"><span class="nav-number">2.</span> <span class="nav-text">BLOCKED</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#实例"><span class="nav-number">2.0.1.</span> <span class="nav-text">实例:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Titbit"><span class="nav-number">2.0.2.</span> <span class="nav-text">Titbit</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#WAITING"><span class="nav-number">3.</span> <span class="nav-text">WAITING</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#WAITING-1"><span class="nav-number">4.</span> <span class="nav-text">WAITING</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#实例-1"><span class="nav-number">4.0.1.</span> <span class="nav-text">实例:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Titbit-1"><span class="nav-number">4.0.2.</span> <span class="nav-text">Titbit:</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TIMED-WAITING"><span class="nav-number">5.</span> <span class="nav-text">TIMED_WAITING</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#TIMED-WAITING-1"><span class="nav-number">5.1.</span> <span class="nav-text">TIMED_WAITING</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#实例-2"><span class="nav-number">5.1.1.</span> <span class="nav-text">实例:</span></a></li></ol></li></ol></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -515,6 +729,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
 
   
 
